@@ -11,13 +11,12 @@ data = pd.read_csv("mpg.csv")
 print(data.head())
 print(data.info())
 
-'''
-# Visualization (optional)
+# Visualization 
 plt.figure(figsize=(10,6))
 sns.heatmap(data.corr(numeric_only=True), annot=True, cmap='coolwarm', fmt='.2f')
 plt.title("Correlation Heatmap")
 plt.show()
-'''
+
 # Features and Target
 features = data[["Horsepower", "Weight"]]
 target = data["MPG"]
@@ -36,8 +35,6 @@ model= XGBRegressor()
 gridsearch=GridSearchCV(estimator=model,param_grid=param_grid,cv=5,scoring='neg_mean_squared_error',verbose=1)
 gridsearch.fit(x_train,y_train)
 print("Best Hyperparameters:", gridsearch.best_params_)
-
-
 y_pred = gridsearch.best_estimator_.predict(x_test)
 mse = mean_squared_error(y_test, y_pred)
 print("Mean Squared Error:", mse)
