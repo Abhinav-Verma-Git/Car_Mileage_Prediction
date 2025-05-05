@@ -5,6 +5,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from xgboost import XGBRegressor
+import joblib
 
 # Load data
 data = pd.read_csv("mpg.csv")
@@ -55,7 +56,7 @@ plt.title('Actual vs Predicted MPG')
 plt.grid(True)
 plt.show()
 
-
+joblib.dump(gridsearch,"model.pkl")
 
 
 
