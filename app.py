@@ -22,7 +22,7 @@ if menu=="Home":
     st.divider()
 if menu=="Analysis":
     st.title("Analytical  Data")
-    st.image("mpg.png",width=500)
+    st.image("analysis.png",width=500)
     if st.checkbox("Tabular Data"):
         st.table(data.head(50))
         st.text("Note: Model is trained on:")
